@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Bar Chart</title>
+  <!-- Load Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <div id="plot"></div>
+
+  <script>
+    // Sample data
+    var yLabels = ['Professional', 'Your Estimate'];
+    var xValues = [-4, 6]; // Values representing positions on the x-axis
+
+    // Create trace for the data
+    var trace = {
+      x: xValues,
+      y: yLabels,
+      type: 'bar',
+      orientation: 'h',
+      marker: {color: ['blue', 'orange']}
+    };
+
+    // Define layout for the plot
+    var layout = {
+      title: 'Horizontal Bar Chart',
+      xaxis: {
+        title: 'Values',
+        tickvals: [-8, -6, -4, -2, 0, 2, 4, 6, 8], // Specify tick values
+        tickmode: 'array',
+        zeroline: true, // Show zero line
+        zerolinecolor: 'rgba(0,0,0,0.5)', // Zero line color
+        zerolinewidth: 2, // Zero line width
+        showline: false, // Hide x-axis line
+      },
+      yaxis: {
+        title: 'Categories'
+      }
+    };
+
+    // Combine trace and layout to create the plot
+    var data = [trace];
+    Plotly.newPlot('plot', data, layout);
+  </script>
+</body>
+</html>
